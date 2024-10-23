@@ -17,7 +17,7 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    // Derived getters
+    // getters
     public double getTotalPay() {
         return payRate * hoursWorked; // Calculate total pay
     }
@@ -32,23 +32,23 @@ public class Employee {
 
     // Getters for other attributes
     public int getEmployeeId() {
-        return employeeId; // Return employee ID
+        return employeeId;
     }
 
     public String getName() {
-        return name; // Return employee name
+        return name;
     }
 
     public String getDepartment() {
-        return department; // Return employee department
+        return department;
     }
 
     public double getPayRate() {
-        return payRate; // Return pay rate
+        return payRate;
     }
 
     public double getHoursWorked() {
-        return hoursWorked; // Return hours worked
+        return hoursWorked;
     }
 }
 

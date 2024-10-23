@@ -2,10 +2,10 @@ package com.pluralsight.hotel;
 
 public class Room {
     //  variables for the Room class
-    private int numberOfBeds;
-    private double price;
-    private boolean occupied;
-    private boolean dirty;
+     int numberOfBeds;
+     double price;
+    boolean occupied;
+     boolean dirty;
 
     // Constructor to initialize room info
     public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
@@ -15,7 +15,7 @@ public class Room {
         this.dirty = dirty;
     }
 
-    // Getters
+    // Getters methods
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
@@ -25,11 +25,11 @@ public class Room {
     }
 
     public boolean isOccupied() {
-        return occupied; // Check if the room is occupied
+        return occupied;
     }
 
     public boolean isDirty() {
-        return dirty; // Check if the room is dirty
+        return dirty;
     }
 
     // Method to check if the room is available
