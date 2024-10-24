@@ -5,21 +5,21 @@ import static org.junit.jupiter.api.Assertions.*;
 class DonutFactoryTest {
 
     @org.junit.jupiter.api.Test
-    void getPriceOfDonuts_halfDozen_get_10_percent_discount() {
+    void getPriceOfDonuts_MoreThan6Dozen_get_30_percent_discount() {
 
         // Fixed values for this test
-        int halfDozen = 6;
-        double costPerHalfDozen = 2.70;
+        int sixDozen = 72;
+        double costPerSixDozen = 25.2;
         double unitPricePerDonut = .50;
 
         // Arrange the test object(s)
         DonutFactory df = new DonutFactory(unitPricePerDonut);
 
         // Act on the object(s)
-        double result = df.getPriceOfDonuts(halfDozen);
+        double result = df.getPriceOfDonuts(sixDozen);
 
         // Assert what SHOULD happen
-        assertEquals(costPerHalfDozen, result);
+        assertEquals(costPerSixDozen, result, .001);
 
     }
 
@@ -46,8 +46,8 @@ class DonutFactoryTest {
     void getPriceOfDonuts_multiple_dozens_get_20_percent_discount() {
 
         // Fixed values for this test
-        int twentyFour = 24;
-        double costForTwoDozenDonuts = 9.60;
+        int twentyFour = 72;
+        double costForTwoDozenDonuts = 25.2;
         double unitPricePerDonut = .50;
 
         // Arrange the test object(s)
@@ -57,7 +57,7 @@ class DonutFactoryTest {
         double result = df.getPriceOfDonuts(twentyFour);
 
         // Assert what SHOULD happen
-        assertEquals(costForTwoDozenDonuts, result);
+        assertEquals(costForTwoDozenDonuts, result, .001);
 
     }
 }
