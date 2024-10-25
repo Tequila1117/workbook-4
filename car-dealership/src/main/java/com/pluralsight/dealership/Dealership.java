@@ -38,5 +38,27 @@ public class Dealership {
         return result;
 
     }
+
+    // Get vehicles by make and model
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getMake().equalsIgnoreCase(make) && v.getModel().equalsIgnoreCase(model)) {
+                result.add(v);
+            }
+        }
+        return result;
+    }
+
+    // Get vehicles by year range
+    public List<Vehicle> getVehiclesByYear(int min, int max) {
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getYear() >= min && v.getYear() <= max) {
+                result.add(v);
+            }
+        }
+        return result;
+    }
 }
 
