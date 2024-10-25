@@ -1,6 +1,7 @@
 package com.pluralsight.dealership;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealership {
     private String name;
@@ -15,4 +16,14 @@ public class Dealership {
         this.phone = phone;
         this.inventory = new ArrayList<>(); //Initiate the Arraylist
     }
-}
+    // Add a vehicle to the inventory
+    public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
+    }
+    // Get all vehicles in the inventory
+    public List<Vehicle> getAllVehicles() {
+        return inventory;
+    }
+
+    }
+
