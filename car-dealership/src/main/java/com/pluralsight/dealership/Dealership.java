@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    private String name;
-    private String address;
-    private String phone;
-    private ArrayList<Vehicle> inventory;
+    private final String name;
+    private final String address;
+    private final String phone;
+    private final ArrayList<Vehicle> inventory;
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
@@ -65,7 +65,7 @@ public class Dealership {
                 result.add(vehicle);
             }
         }
-        return result; // Return the list of vehicles of the specified color
+        return result; // Return the list of vehicles of specific color
     }
 
     public List<Vehicle> getVehiclesByMileage(int min, int max) {

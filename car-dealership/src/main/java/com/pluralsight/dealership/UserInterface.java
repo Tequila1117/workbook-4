@@ -26,7 +26,7 @@ public class UserInterface {
 
     // Method to display the main menu and handle user input
     public void display() {
-        // Create a Scanner object for user input
+        // Scanner object for user input
         Scanner scan = new Scanner(System.in);
         // Initialize the dealership data when the program starts
         init();
@@ -92,7 +92,7 @@ public class UserInterface {
                     System.out.println("Please enter a valid option:");
             }
         }
-        scan.close(); // Close the scanner to free resources
+        scan.close(); // Close the scanner
     }
 
     // Method to process a request to find vehicles by price range
@@ -176,7 +176,6 @@ public class UserInterface {
         // Display the vehicles found
         displayVehicles(vehicles);
     }
-
     // Method to process a request to add a new vehicle
     private void processAddVehicleRequest(Scanner scan) {
         System.out.println("Enter vehicle details (VIN, Year, Make, Model, Type, Color, Odometer, Price):");
@@ -184,21 +183,21 @@ public class UserInterface {
         // Check if the correct number of details was provided
         if (details.length == 8) {
             // Create a new Vehicle object using the provided details
-            Vehicle vehicle = new Vehicle(
-                    Integer.parseInt(details[0].trim()), // VIN
-                    Integer.parseInt(details[1].trim()), // Year
-                    details[2].trim(), // Make
-                    details[3].trim(), // Model
-                    details[4].trim(), // Type
-                    details[5].trim(), // Color
-                    Integer.parseInt(details[6].trim()), // Odometer
-                    Double.parseDouble(details[7].trim()) // Price
-            );
+            int vin = Integer.parseInt(details[0].trim());
+            int year = Integer.parseInt(details[1].trim());
+            String make = details[2].trim();
+            String model = details[3].trim();
+            String type = details[4].trim();
+            String color = details[5].trim();
+            int odometer = Integer.parseInt(details[6].trim());
+            double price = Double.parseDouble(details[7].trim());
+
+            Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
             // Add the new vehicle to the dealership
             dealership.addVehicle(vehicle);
-            System.out.println("Vehicle added successfully!"); // Confirmation message
+            System.out.println("Vehicle added successfully!");
+
         } else {
-            // Inform the user of invalid input if the number of details is incorrect
             System.out.println("Invalid input. Please provide all vehicle details.");
         }
     }
@@ -207,13 +206,24 @@ public class UserInterface {
     private void processRemoveVehicleRequest(Scanner scan) {
         System.out.println("Enter VIN of the vehicle to remove:");
         int vin = Integer.parseInt(scan.nextLine()); // Read the VIN to remove
-
-        // Create a placeholder Vehicle object for searching (you may want to enhance this)
+        // Create a placeholder Vehicle object for searching
         Vehicle vehicleToRemove = new Vehicle(vin, 0, "", "", "", "", 0, 0.0);
-
         // Remove the vehicle from the dealership
         dealership.removeVehicle(vehicleToRemove);
         System.out.println("Vehicle removed successfully!"); // Confirmation message
+
+        // Call saveDealership to persist changes
+        saveDealership(dealership);
+    }
+    private void saveDealership(Dealership dealership) {
+        try {
+            // Assuming you have a DealershipFileManager class that saves the data
+            DealershipFileManager fileManager = new DealershipFileManager();
+            fileManager.saveDealership(dealership);
+            System.out.println("Dealership data saved successfully.");
+        } catch (Exception e) {
+            System.out.println("Error saving dealership data: " + e.getMessage());
+        }
     }
 
     // Method to display the list of vehicles found

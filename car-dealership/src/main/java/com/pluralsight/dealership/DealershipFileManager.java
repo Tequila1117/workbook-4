@@ -2,8 +2,7 @@ package com.pluralsight.dealership;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class DealershipFileManager {
     private final String filePath = "src/main/resources/inventory.csv"; // File path for dealership data
@@ -33,6 +32,32 @@ public class DealershipFileManager {
     }
 
     public void saveDealership(Dealership dealership) {
-        // To be implemented later
+        // Specify the file path where the dealership data will be saved
+        String filePath = "src/main/resources/inventory.csv";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            // Write dealership information (you can customize this part)
+            writer.write("Dealership Name: " + dealership.getName() + "\n");
+            writer.write("Dealership Address: " + dealership.getAddress() + "\n");
+            writer.write("Dealership Phone: " + dealership.getPhone() + "\n");
+
+            // Write vehicle information
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                writer.write(String.format("%d|%d|%s|%s|%s|%s|%d|%.2f%n",
+                        vehicle.getVin(),
+                        vehicle.getYear(),
+                        vehicle.getMake(),
+                        vehicle.getModel(),
+                        vehicle.getVehicleType(),
+                        vehicle.getColor(),
+                        vehicle.getOdometer(),
+                        vehicle.getPrice()));
+            }
+
+            System.out.println("Dealership data saved successfully.");
+        } catch (IOException e) {
+            System.out.println("Error saving dealership data: " + e.getMessage());
+
+        }
     }
 }
