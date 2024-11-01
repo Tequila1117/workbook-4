@@ -222,7 +222,7 @@ public class UserInterface {
             fileManager.saveDealership(dealership);
             System.out.println("Dealership data saved successfully.");
         } catch (Exception e) {
-            System.out.println("Error saving dealership data: " + e.getMessage());
+            System.out.println("Error saving dealership info: " + e.getMessage());
         }
     }
 

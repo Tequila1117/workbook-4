@@ -1,7 +1,5 @@
 package com.pluralsight.dealership;
 
-import java.util.Objects;
-
 public class Vehicle {
     private int vin;
     private int year;
@@ -11,6 +9,7 @@ public class Vehicle {
     private String color;
     private int odometer; // Mileage of the vehicle
     private double price;
+
 
     // Constructor
     public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
@@ -24,6 +23,7 @@ public class Vehicle {
         this.price = price;
     }
 
+
     // Getters and Setters
     public int getVin() { return vin; }
     public int getYear() { return year; }
@@ -34,7 +34,9 @@ public class Vehicle {
     public int getOdometer() { return odometer; }
     public double getPrice() { return price; }
 
+
     @Override
+
     public String toString() {
         return vin + "|" + year + "|" + make + "|" + model + "|" + vehicleType + "|" + color + "|" + odometer + "|" + price;
     }
