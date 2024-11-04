@@ -32,11 +32,11 @@ public class DealershipFileManager {
     }
 
     public void saveDealership(Dealership dealership) {
-        // Specify the file path where the dealership data will be saved
+        //  file path where the dealership data will be saved
         String filePath = "src/main/resources/inventory.csv";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            // Write dealership information (you can customize this part)
+            // Write dealership information
             writer.write("Dealership Name: " + dealership.getName() + "\n");
             writer.write("Dealership Address: " + dealership.getAddress() + "\n");
             writer.write("Dealership Phone: " + dealership.getPhone() + "\n");

@@ -9,23 +9,29 @@ public class Dealership {
     private final String phone;
     private final ArrayList<Vehicle> inventory;
 
+
+    // Initialize inventory list
     public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = new ArrayList<>(); // Initialize inventory list
+        this.inventory = new ArrayList<>();
     }
 
+    // Add vehicle to the inventory
     public void addVehicle(Vehicle vehicle) {
-        inventory.add(vehicle); // Add vehicle to the inventory
+        inventory.add(vehicle);
     }
 
+
+    // Remove vehicle from the inventory
     public void removeVehicle(Vehicle vehicle) {
-        inventory.remove(vehicle); // Remove vehicle from the inventory
+        inventory.remove(vehicle);
     }
 
+    // Return a copy of the inventory
     public List<Vehicle> getAllVehicles() {
-        return new ArrayList<>(inventory); // Return a copy of the inventory
+        return new ArrayList<>(inventory);
     }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
